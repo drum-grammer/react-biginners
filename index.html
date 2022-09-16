@@ -9,10 +9,24 @@
 	<script>
 		const root = document.getElementById("root");
 		const span = React.createElement(
-			"span",
-			{ id: "sex-span", style: { color: "red" } },
-			"hello~"
+			"h3", 
+			{
+				onMouseEnter: () => console.log("I'm clicked"),
+			}, 
+			"Hello!"
 		);
-		ReactDOM.render(span, root);
+		const btn = React.createElement(
+			"button", 
+			{
+				onClick: () => console.log("I'm clicked"),
+				style: {
+					backgroundColor: "tomato",
+				}
+			}, 
+			"Click me!"
+		);
+		const container = React.createElement("div", null, [span, btn]);
+
+		ReactDOM.render(container, root);
 	</script>
 </html>
