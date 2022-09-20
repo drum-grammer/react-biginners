@@ -32,13 +32,15 @@
 
 		// const container = React.createElement("div", null, [span, btn]);
 
-		const Title = (
-			<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-				Hello!
-			</h3>
-		);
+		function Title() {
+			return (
+				<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+					Hello!
+				</h3>
+			);
+		};
 
-		const Button = (
+		const Button =  () => (
 			<button
 				style={{
 					backgroundColor: "tomato",
@@ -49,8 +51,14 @@
 			</button>
 		);
 
-		const container = React.createElement("div", null, [Title, Button]);
+		const Container = () => (
+			<div>
+				<buuton>hello</buuton>
+				<Title />
+				<Button />
+			</div>
+		)
 
-		ReactDOM.render(container, root);
+		ReactDOM.render(<Container />, root);
 	</script>
 </html>
