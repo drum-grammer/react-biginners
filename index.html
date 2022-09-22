@@ -7,55 +7,12 @@
 	<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
 	<script type="text/babel";>
 		const root = document.getElementById("root");
-
-		// const span = React.createElement(
-		// 	"h3",
-		// 	{
-		// 		onMouseEnter: () => console.log("I'm clicked"),
-		// 	},
-		// 	"Hello!"
-		// );
-
-		// const btn = React.createElement(
-		// 	"button",
-		// 	{
-		// 		onClick: () => console.log("I'm clicked"),
-		// 		style: {
-		// 			backgroundColor: "tomato",
-		// 		}
-		// 	},
-		// 	"Click me!"
-		// );
-
-		// const container = React.createElement("div", null, [span, btn]);
-
-		function Title() {
-			return (
-				<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-					Hello!
-				</h3>
-			);
-		};
-
-		const Button =  () => (
-			<button
-				style={{
-					backgroundColor: "tomato",
-				}}
-		 		onClick={() => console.log("I'm clicked")}
-			>
-				Click me!
-			</button>
-		);
-
 		const Container = () => (
 			<div>
-				<buuton>hello</buuton>
-				<Title />
-				<Button />
+				<h3>Total Click: 0</h3>
+				<button>Click me</button>
 			</div>
 		)
 
