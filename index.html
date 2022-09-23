@@ -14,28 +14,35 @@
 				console.log(event.target.value)
 				setMin(event.target.value)
 			};
+			const reset = () => setMin(0)
 
 			return (
 				<div>
 					<h1 className="hi">Super Converter</h1>
 
-					<label htmlFor="min">Minutes</label>
-					<input
-						id="min"
-						placeholder="min"
-						type="number"
-						value={min}
-						onChange={onChange}
-					/>
+					<div>
+						<label htmlFor="min">Minutes</label>
+						<input
+							id="min"
+							placeholder="min"
+							type="number"
+							value={min}
+							onChange={onChange}
+						/>
+
+					</div>
 
 					<h4> You wnat to convert </h4>
-					<label htmlFor="hours">Hours</label>
-					<input
-						id="hour"
-						value="hour"
-						placeholder="hour"
-						type="number"
-					/>
+					<div>
+						<label htmlFor="hours">Hours</label>
+						<input
+							id="hour"
+							placeholder="hour"
+							type="number"
+							value={Math.round(min / 60)}
+						/>
+					</div>
+					<button onClick={reset}>Reset</button>
 				</div>
 			);
 		};
