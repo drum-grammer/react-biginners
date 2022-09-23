@@ -8,52 +8,6 @@
 	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	<script type="text/babel";>
-		function Km2Miles () {
-			return <h3>Km2Miles</h3>
-		}
-		function Minute2Hour () {
-			const [amount, setAmout] = React.useState();
-			const [inverted, setInverted] = React.useState(false);
-			const onChange = (event) => {
-				setAmout(event.target.value);
-			};
-			const reset = () => setAmout(0);
-			const onFlip = () => setInverted((current) => !current);
-			console.log(inverted)
-
-			return (
-				<div>
-					<h3>Minute2Hour</h3>
-					<div>
-						<label htmlFor="min">Minutes</label>
-						<input
-							id="min"
-							placeholder="min"
-							type="number"
-							// value={inverted ?  amount * 60 : amount}
-							value={amount}
-							onChange={onChange}
-							disalbed={inverted}
-						/>
-
-					</div>
-
-					<div>
-						<label htmlFor="hours">Hours</label>
-						<input
-							id="hour"
-							placeholder="hour"
-							type="number"
-							value={inverted ?  amount : Math.round(amount / 60)}
-							onChange={onChange}
-							disalbed={!inverted}
-						/>
-					</div>
-					<button onClick={reset}>Reset</button>
-					<button onClick={onFlip}>{inverted ? "Hour2Minute" : "Minute2Hour"}</button>
-				</div>
-			);
-		};
 
 		function App () {
 			const [converterIndex, setConverterIndex] = React.useState(0);
@@ -63,14 +17,6 @@
 			}
 			return (
 				<div>
-					<h1 className="hi">Super Converter</h1>
-					<select onChange={onSelect}>
-						<option value="0">choose converter</option>
-						<option value="1">Km2Miles</option>
-						<option value="2">Hour2Minute</option>
-					</select>
-					{converterIndex === "1" ? <Km2Miles /> : null}
-					{converterIndex === "2" ? <Minute2Hour /> : null}
 				</div>
 			);
 		};
