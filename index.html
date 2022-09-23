@@ -10,13 +10,13 @@
 	<script type="text/babel";>
 		function App () {
 			const [amount, setAmout] = React.useState();
-			const [flipped, setFlipped] = React.useState(false);
+			const [inverted, setInverted] = React.useState(false);
 			const onChange = (event) => {
 				setAmout(event.target.value);
 			};
 			const reset = () => setAmout(0);
-			const onFlip = () => setFlipped((current) => !current);
-			console.log(flipped)
+			const onFlip = () => setInverted((current) => !current);
+			console.log(inverted)
 
 			return (
 				<div>
@@ -28,9 +28,10 @@
 							id="min"
 							placeholder="min"
 							type="number"
+							// value={inverted ?  amount * 60 : amount}
 							value={amount}
 							onChange={onChange}
-							disalbed={flipped}
+							disalbed={inverted}
 						/>
 
 					</div>
@@ -42,13 +43,13 @@
 							id="hour"
 							placeholder="hour"
 							type="number"
-							value={flipped ?  amount : Math.round(amount / 60)}
+							value={inverted ?  amount : Math.round(amount / 60)}
 							onChange={onChange}
-							disalbed={!flipped}
+							disalbed={!inverted}
 						/>
 					</div>
 					<button onClick={reset}>Reset</button>
-					<button onClick={onFlip}>Flip</button>
+					<button onClick={onFlip}>{inverted ? "Hour2Minute" : "Minute2Hour"}</button>
 				</div>
 			);
 		};
