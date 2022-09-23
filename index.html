@@ -9,12 +9,14 @@
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	<script type="text/babel";>
 		function App () {
-			const [min, setMin] = React.useState();
+			const [amount, setAmout] = React.useState();
+			const [flipped, setFlipped] = React.useState(false);
 			const onChange = (event) => {
-				console.log(event.target.value)
-				setMin(event.target.value)
+				setAmout(event.target.value);
 			};
-			const reset = () => setMin(0)
+			const reset = () => setAmout(0);
+			const onFlip = () => setFlipped((current) => !current);
+			console.log(flipped)
 
 			return (
 				<div>
@@ -26,8 +28,9 @@
 							id="min"
 							placeholder="min"
 							type="number"
-							value={min}
+							value={amount}
 							onChange={onChange}
+							disalbed={flipped}
 						/>
 
 					</div>
@@ -39,10 +42,13 @@
 							id="hour"
 							placeholder="hour"
 							type="number"
-							value={Math.round(min / 60)}
+							value={flipped ?  amount : Math.round(amount / 60)}
+							onChange={onChange}
+							disalbed={!flipped}
 						/>
 					</div>
 					<button onClick={reset}>Reset</button>
+					<button onClick={onFlip}>Flip</button>
 				</div>
 			);
 		};
