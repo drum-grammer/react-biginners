@@ -15,12 +15,18 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>The coins ({coins.length})</h1>
-			{loading ? <strong>Loading ......</strong> : null}
-			<ul>
-				{coins.map((coin, key) => <li key={key}>{coin.name} ({coin.symbol} = {coin.quotes.USD.price} USD)</li>)}
-			</ul>
-			{/* {coins} */}
+			<h1>The coins {loading ? "" : `(${coins.length})`}</h1>
+			{loading ? (
+				<strong>Loading ......</strong>
+			) : (
+				<select>
+					{coins.map((coin, key) => (
+						<option key={key}>
+							{coin.name} ({coin.symbol} = {coin.quotes.USD.price} USD)
+						</option>
+					))}
+				</select>
+			)}
 		</div>
 	);
 }
