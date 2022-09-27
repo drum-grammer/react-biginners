@@ -9,7 +9,7 @@ function App() {
 		if (todo === "") {
 			return;
 		}
-		setTodos(currentArray => [todo, ...currentArray]);
+		setTodos((currentArray) => [todo, ...currentArray]);
 		setTodo("");
 	}
 	console.log("todo", todo)
@@ -28,6 +28,12 @@ function App() {
 				/>
 			<button>Add Todo</button>
 			</form>
+			<hr></hr>
+			<ul>
+				{todos.map((item, index) => (
+					<li key={index}>{item}</li>
+				))}
+			</ul>
 		</div>
 	);
 }
