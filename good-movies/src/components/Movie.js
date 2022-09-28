@@ -5,7 +5,7 @@ function Movie({ id, coverImg, title, summary, genres, rating, year }) {
 	return (
 		<div key={id}>
 			<h2>
-				<Link to="/movie">{title} ({year}) </Link>
+				<Link to={`/movies/${id}`}>{title} ({year}) </Link>
 			</h2>
 			<button>{rating}</button>
 			{genres.map((g, i) => (
@@ -18,6 +18,7 @@ function Movie({ id, coverImg, title, summary, genres, rating, year }) {
 }
 
 Movie.propTypes = {
+	id: PropTypes.number.isRequired,
 	coverImg: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	summary: PropTypes.string.isRequired,
